@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Customer {
    
-   private final String CustomerId;
+   private final String customerId;
    private final String firstname;
    private final String lastname;
    private final String email;
@@ -13,8 +13,8 @@ public class Customer {
    private final String phoneNumber;
    private static int customerCount = 0;
    
-   public Customer(int customerId, String firstname, String lastname, String email, String address, String phoneNumber) {
-      this.CustomerId = UUID.randomUUID().toString();
+   public Customer(String firstname, String lastname, String email, String address, String phoneNumber) {
+      this.customerId = UUID.randomUUID().toString();
       this.firstname = firstname;
       this.lastname = lastname;
       this.email = email;
@@ -24,7 +24,7 @@ public class Customer {
    }
    
    public String getCustomerId() {
-      return CustomerId;
+      return customerId;
    }
    
    public String getFirstname() {
@@ -53,7 +53,7 @@ public class Customer {
    
    @Override
    public String toString() {
-      return "Customer{" + "CustomerId='" + CustomerId + '\'' + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\'' + ", address='" + address + '\'' + ", phoneNumber='" + phoneNumber + '\'' + '}';
+      return "Customer{" + "CustomerId='" + customerId + '\'' + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\'' + ", address='" + address + '\'' + ", phoneNumber='" + phoneNumber + '\'' + '}';
    }
    
    @Override
@@ -63,11 +63,11 @@ public class Customer {
       if (o == null || getClass() != o.getClass())
          return false;
       Customer customer = (Customer) o;
-      return Objects.equals(CustomerId, customer.CustomerId) && Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(email, customer.email) && Objects.equals(address, customer.address) && Objects.equals(phoneNumber, customer.phoneNumber);
+      return Objects.equals(customerId, customer.customerId) && Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(email, customer.email) && Objects.equals(address, customer.address) && Objects.equals(phoneNumber, customer.phoneNumber);
    }
    
    @Override
    public int hashCode() {
-      return Objects.hash(CustomerId);
+      return Objects.hash(customerId);
    }
 }
