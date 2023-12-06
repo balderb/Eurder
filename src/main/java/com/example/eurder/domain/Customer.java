@@ -1,10 +1,11 @@
 package com.example.eurder.domain;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Customer {
    
-   private final int CustomerId;
+   private final String CustomerId;
    private final String firstname;
    private final String lastname;
    private final String email;
@@ -12,7 +13,7 @@ public class Customer {
    private final String phoneNumber;
    
    public Customer(int customerId, String firstname, String lastname, String email, String address, String phoneNumber) {
-      CustomerId = customerId;
+      this.CustomerId = UUID.randomUUID().toString();
       this.firstname = firstname;
       this.lastname = lastname;
       this.email = email;
@@ -20,7 +21,7 @@ public class Customer {
       this.phoneNumber = phoneNumber;
    }
    
-   public int getCustomerId() {
+   public String getCustomerId() {
       return CustomerId;
    }
    
@@ -56,7 +57,7 @@ public class Customer {
       if (o == null || getClass() != o.getClass())
          return false;
       Customer customer = (Customer) o;
-      return CustomerId == customer.CustomerId && Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(email, customer.email) && Objects.equals(address, customer.address) && Objects.equals(phoneNumber, customer.phoneNumber);
+      return Objects.equals(CustomerId, customer.CustomerId) && Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(email, customer.email) && Objects.equals(address, customer.address) && Objects.equals(phoneNumber, customer.phoneNumber);
    }
    
    @Override
