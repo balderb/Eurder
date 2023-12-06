@@ -1,5 +1,7 @@
 package com.example.eurder.domain;
 
+import jakarta.validation.constraints.Email;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -8,6 +10,7 @@ public class Customer {
    private final String customerId;
    private final String firstname;
    private final String lastname;
+   @Email
    private final String email;
    private final String address;
    private final String phoneNumber;
