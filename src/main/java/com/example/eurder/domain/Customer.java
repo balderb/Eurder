@@ -1,5 +1,6 @@
-package com.example.eurder.domain.dto;
+package com.example.eurder.domain;
 
+import java.util.Objects;
 
 public class Customer {
    
@@ -41,5 +42,25 @@ public class Customer {
    
    public String getPhoneNumber() {
       return phoneNumber;
+   }
+   
+   @Override
+   public String toString() {
+      return "Customer{" + "CustomerId=" + CustomerId + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\'' + ", address='" + address + '\'' + ", phoneNumber='" + phoneNumber + '\'' + '}';
+   }
+   
+   @Override
+   public boolean equals(Object o) {
+      if (this == o)
+         return true;
+      if (o == null || getClass() != o.getClass())
+         return false;
+      Customer customer = (Customer) o;
+      return CustomerId == customer.CustomerId && Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(email, customer.email) && Objects.equals(address, customer.address) && Objects.equals(phoneNumber, customer.phoneNumber);
+   }
+   
+   @Override
+   public int hashCode() {
+      return Objects.hash(CustomerId);
    }
 }
