@@ -7,6 +7,9 @@ import com.example.eurder.domain.repository.CustomerRepository;
 import com.example.eurder.mapper.CustomerMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CustomerService {
    private final CustomerRepository customerRepository;
@@ -21,7 +24,12 @@ public class CustomerService {
      Customer customer = customerMapper.mapCustomerDTOToCustomer(createCustomerDTO);
      customerRepository.addNewCustomer(customer);
      return customerMapper.mapCustomerToCustomerDTO(customer);
-     
+   }
+   
+   public List<CustomerDTO> getAllCustomers() {
+      return customerRepository.getAllCustomers().stream()
+              .map(customerMapper::mapCustomerToCustomerDTO)
+              .collect(Collectors.toList());
    }
    
 }
